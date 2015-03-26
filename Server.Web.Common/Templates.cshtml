@@ -1,0 +1,10 @@
+﻿@* Generator: MvcHelper *@
+@helper ValidationTemplate(string[] errors)
+{
+    <ol class="val-container">
+        @foreach (var error in errors)
+        {
+            <li>@error</li>
+        }
+    </ol>
+}

@@ -1,0 +1,86 @@
+﻿@model Server.Web.Components.Models.User
+@using Server.Web.Components.Helpers
+@{
+    ViewBag.Title = "Server Side Components";
+    ASP.RazorHelpers.
+}
+
+<div class="jumbotron">
+    <h1>Server Side Components</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading"> HTML Helper </div>
+            <div class="panel-body">
+                @Html.Label("Name")
+                @Html.TextBox("name-value", Model.Name)
+                <pre>Html.TextBox("name-value", new Server.Web.Components.Models.UserModel().Name)</pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading"> Display/Editor For </div>
+            <div class="panel-body">
+                @Html.DisplayFor(m => m)
+                <pre>Html.DisplayFor(m => m)</pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading"> Razor Helper </div>
+            <div class="panel-body">
+                @RazorHelpers.UserAllInLine(Model)
+                <pre>RazorHelpers.UserAllInLine(Model)</pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading"> Partial Views </div>
+            <div class="panel-body">
+                @Html.Partial("UserView", Model)
+                <pre>Html.Partial("UserView", Model)</pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading"> Sub Action </div>
+            <div class="panel-body">
+                @Html.Action("NewUser")
+                <pre>Html.Action("Action")</pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading"> Helper Result </div>
+            <div class="panel-body">
+                @Components.Helper()
+                <pre>see Server.Web.Components.Helpers.Components class</pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading"> Helper with MVC HTML String</div>
+            <div class="panel-body">
+                @Components.MvcHtmlString()
+                <pre>see Server.Web.Components.Helpers.Components class</pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading"> Helper with External Generated Component</div>
+            <div class="panel-body">
+                @Common.CustomComponents.Component1(new Common.Model.ExternalComponentUser(){Name = "Chuck", Surname= "Norris"})
+               <pre>This view is contained in an external dll library</pre>
+            </div>
+        </div>
+    </div>
+</div>
